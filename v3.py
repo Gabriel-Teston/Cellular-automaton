@@ -239,23 +239,23 @@ def gerate(x, y):
     board[x][y] = aux[x][y]
 
 
-def printPygame():
+def print_pygame():
     for x in range(len(board)):
         for y in range(len(board[0])):
             if board[x][y][1] == 0:
-                drawBoard(x * 8, y * 8)
+                draw_board(x * 8, y * 8)
             else:
-                drawCell(x * 8, y * 8)
+                draw_cell(x * 8, y * 8)
 
 
-def drawCell(x, y):
+def draw_cell(x, y):
     x += 6
     y += 6
     pygame.draw.polygon(windowSurface, board[(x - 6) / 8][(y - 6) / 8][1],
                         ((x - 3, y - 3), (x + 3, y - 3), (x + 3, y + 3), (x - 3, y + 3)))
 
 
-def drawBoard(x, y):
+def draw_board(x, y):
     x += 6
     y += 6
     pygame.draw.polygon(windowSurface, GRAY, ((x - 3, y - 3), (x + 3, y - 3), (x + 3, y + 3), (x - 3, y + 3)))
@@ -401,6 +401,6 @@ while running:
         for x in xrange(len(aux)):
             for y in xrange(len(aux[0])):
                 gerate(x, y)
-    printPygame()
+    print_pygame()
     pygame.display.update()
 pygame.quit()
